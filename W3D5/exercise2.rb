@@ -5,6 +5,7 @@ class Queue
 
     def enqueue(el)
         data.push(el)
+        self
     end
 
     def dequeue

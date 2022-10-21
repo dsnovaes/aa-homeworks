@@ -5,6 +5,7 @@ class Map
 
     def set(key,value)
         my_map.push([key,value]) unless get(key)
+        self
     end
 
     def get(key)
@@ -16,11 +17,13 @@ class Map
         my_map.each_with_index do |pair,idx|
             my_map.delete_at(idx) if pair.first == key
         end
+        self
     end
 
     def show
-        my_map
+        my_map.dup
     end
+
 
     private
     attr_reader :my_map

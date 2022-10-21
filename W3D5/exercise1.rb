@@ -5,6 +5,7 @@ class Stack
 
     def push(el)
         data.push(el)
+        self
     end
 
     def pop
