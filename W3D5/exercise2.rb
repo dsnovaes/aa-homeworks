@@ -4,14 +4,17 @@ class Queue
     end
 
     def enqueue(el)
-        @data.push(el)
+        data.push(el)
     end
 
     def dequeue
-        @data.shift
+        data.shift
     end
 
     def peek
-        @data.first
+        data.first
     end
+
+    private
+    attr_reader :data
 end

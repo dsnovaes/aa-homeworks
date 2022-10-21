@@ -4,14 +4,17 @@ class Stack
     end
 
     def push(el)
-        @data.push(el)
+        data.push(el)
     end
 
     def pop
-        @data.pop
+        data.pop
     end
     
     def peek
-        @data.last
+        data.last
     end
+
+    private
+    attr_reader :data
 end
