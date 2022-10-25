@@ -22,6 +22,14 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+
+    num_stones = @cups[start_pos].length
+    @cups[start_pos] = []
+    num_stones.times do |i|
+      @cups[start_pos+i+1] << :stone
+      num_stones -= 1
+    end
+    # render
   end
 
   def next_turn(ending_cup_idx)
