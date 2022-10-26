@@ -65,12 +65,6 @@ class Simon
     end
   end
 
-  def hold
-    sleep(1)
-    system("clear")
-    sleep(0.1)
-  end
-
   def require_sequence
     puts "Type the sequence, divide color by spaces."
     seq_input = gets.chomp.split(" ")
@@ -97,21 +91,13 @@ class Simon
     self.seq.each do |color|
       case color
       when "red"
-        puts (" " + color + " ").red.on_red
         puts (" " + color + " ").white.on_red
-        puts (" " + color + " ").red.on_red
       when "blue"
-        puts (" " + color + " ").light_blue.on_light_blue
         puts (" " + color + " ").white.on_light_blue
-        puts (" " + color + " ").light_blue.on_light_blue
       when "green"
-        puts (" " + color + " ").green.on_green
         puts (" " + color + " ").black.on_green
-        puts (" " + color + " ").green.on_green
       when "yellow"
-        puts (" " + color + " ").yellow.on_yellow
         puts (" " + color + " ").black.on_yellow
-        puts (" " + color + " ").yellow.on_yellow
       else
         puts color
       end
@@ -123,6 +109,13 @@ class Simon
     self.sequence_length = 1
     self.game_over = false
     self.seq = []
+  end
+
+  private
+  def hold
+    sleep(1)
+    system("clear")
+    sleep(0.1)
   end
 end
 
