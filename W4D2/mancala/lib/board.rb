@@ -5,7 +5,8 @@ class Board
     @cups = Array.new(14) { Array.new(4, :stone) }
     @cups[6] = []
     @cups[13] = []
-    
+    @name1 = name1
+    @name2 = name2
   end
 
   def place_stones
@@ -23,13 +24,34 @@ class Board
 
   def make_move(start_pos, current_player_name)
 
-    num_stones = @cups[start_pos].length
-    @cups[start_pos] = []
+    num_stones = @cups[start_pos].length # get the number of stones to distribute
+    @cups[start_pos] = [] # empties the cup at starting position
+    ending_index = start_pos + num_stones # defines the ending index
+
+    if start_pos.between?(0,5)
+      player_side = 1
+    elsif start_pos.between?(7,12)
+      player_side = 2
+    end
     num_stones.times do |i|
-      @cups[start_pos+i+1] << :stone
+
+      index = (start_pos+i+1) % 13
+      # if (player_side == 1 && index == 13) && (player_side == 2 && index == 6)
+      #   puts "cup skipped"
+      #   next
+      # end
+
+      @cups[index] << :stone
       num_stones -= 1
     end
-    # render
+
+    next_turn(ending_index)
+    render
+    if ending_index.between?(0,5)
+      
+    elsif start_pos.between?(7,12)
+      ending_index = 2
+    end
   end
 
   def next_turn(ending_cup_idx)
