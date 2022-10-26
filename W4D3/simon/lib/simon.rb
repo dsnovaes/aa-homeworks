@@ -26,9 +26,10 @@ class Simon
       if user_sequence != self.seq
         self.game_over = true
         game_over_message
+      else
+        round_success_message
+        self.sequence_length += 1
       end
-      round_success_message
-      self.sequence_length += 1
     end
   end
 
@@ -81,7 +82,9 @@ class Simon
   end
 
   def round_success_message
+    system("clear")
     puts "Great job!"
+    sleep(1)
   end
 
   def game_over_message
@@ -89,7 +92,7 @@ class Simon
     puts "YOU LOSE"
     puts "YOU LOSE"
     puts "YOU LOSE"
-    puts "YOU LOSE"
+    puts "You got #{self.seq.count-1} correct answer(s)"
     puts "Correct sequence:"
     self.seq.each do |color|
       case color
