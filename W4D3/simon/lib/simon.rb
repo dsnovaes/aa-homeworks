@@ -38,27 +38,27 @@ class Simon
     self.seq.each do |color|
       system("clear")
       case color
-      when "red"
-        puts (" " + color + " ").red.on_red
-        puts (" " + color + " ").white.on_red
-        puts (" " + color + " ").red.on_red
-        hold
-      when "blue"
-        puts (" " + color + " ").light_blue.on_light_blue
-        puts (" " + color + " ").white.on_light_blue
-        puts (" " + color + " ").light_blue.on_light_blue
-        hold
-      when "green"
-        puts (" " + color + " ").green.on_green
-        puts (" " + color + " ").black.on_green
-        puts (" " + color + " ").green.on_green
-        hold
-      when "yellow"
-        puts (" " + color + " ").yellow.on_yellow
-        puts (" " + color + " ").black.on_yellow
-        puts (" " + color + " ").yellow.on_yellow
-        hold
-      else
+        when "red"
+          puts (" " + color + " ").red.on_red
+          puts (" " + color + " ").white.on_red
+          puts (" " + color + " ").red.on_red
+          hold
+        when "blue"
+          puts (" " + color + " ").light_blue.on_light_blue
+          puts (" " + color + " ").white.on_light_blue
+          puts (" " + color + " ").light_blue.on_light_blue
+          hold
+        when "green"
+          puts (" " + color + " ").green.on_green
+          puts (" " + color + " ").black.on_green
+          puts (" " + color + " ").green.on_green
+          hold
+        when "yellow"
+          puts (" " + color + " ").yellow.on_yellow
+          puts (" " + color + " ").black.on_yellow
+          puts (" " + color + " ").yellow.on_yellow
+          hold
+        else
         puts color
       end
       system("clear")
