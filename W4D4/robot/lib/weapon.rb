@@ -1,4 +1,4 @@
-require "robot"
+require "item"
 
 class Weapon < Item
 
@@ -10,9 +10,8 @@ class Weapon < Item
         @damage = damage
         super(name, weight)
     end
-
     def hit(other_robot)
-        other_robot.wound(45)
+        other_robot.wound(@damage)
     end
 
 end

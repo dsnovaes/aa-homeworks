@@ -1,11 +1,6 @@
-require_relative "bolts"
-require_relative "item"
-require_relative "weapon"
-
 class Robot
 
-    attr_reader :position, :items, :items_weight
-    attr_accessor :equipped_weapon, :health
+    attr_accessor :equipped_weapon, :health, :items, :position, :items_weight
 
     def initialize
         @position = [0,0]
@@ -41,7 +36,14 @@ class Robot
     end
 
     def wound(amount)
-        @health -= amount unless @health - amount < 0
+
+        if @health - amount >= 0
+            @health -= amount
+        elsif @health - amount < 0
+            @health = 0
+        end
+
+        # @health -= amount if @health - amount >= 0
     end
 
     def heal(amount)
@@ -50,7 +52,7 @@ class Robot
 
     def attack(other_robot)
         @equipped_weapon.hit(other_robot)
-        other_robot.wound(5)
+        other_robot.wound(5) # @equipped_weapon.damage
     end
 
 end

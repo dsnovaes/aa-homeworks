@@ -33,8 +33,6 @@ describe Robot do
   end
 end
 
-
-
 describe Robot do
   subject(:robot) { Robot.new }
   let(:item1) { double(:weight => 10) }
