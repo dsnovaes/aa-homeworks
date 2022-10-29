@@ -9,7 +9,8 @@ require 'active_support/inflector'
 # See https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-pluralize
 
 class Dessert
-  attr_reader :type, :quantity, :ingredients, :temp
+  attr_reader :type, :ingredients, :temp
+  attr_accessor :quantity
 
   def initialize(type, quantity, chef)
     raise ArgumentError unless quantity.is_a?(Integer)
@@ -18,6 +19,11 @@ class Dessert
     @chef = chef
     @ingredients = []
     @temp = 60
+  end
+
+  def quantity=(value)
+    raise ArgumentError unless value.is_a?(Integer)
+    @quantity = value
   end
 
   def add_ingredient(ingredient)
